@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: myftp-deployment
+  labels:
+    app: myftp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myftp
+  template:
+    metadata:
+      labels:
+        app: myftp
+    spec:
+      containers:
+      - name: myftp
+        image: gavindeed/myftp:v1
+        ports:
+        - containerPort: 2121
+
