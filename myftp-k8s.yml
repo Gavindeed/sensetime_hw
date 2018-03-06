@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myftp-deployment
+  labels:
+    app: myftp
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: myftp
+  template:
+    metedata:
+      labels:
+        app: myftp
+    spec:
+      containers:
+      - name: myftp
+        image: myftp
+        ports:
+        - containerPort: 2121

@@ -1,0 +1,2 @@
+FtpLogger: ftpLogger.go:30: Create a FTP server.
+FtpLogger: ftpLogger.go:30: FTP server starts to listen.
