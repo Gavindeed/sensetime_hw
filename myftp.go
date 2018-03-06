@@ -16,6 +16,7 @@ func main() {
 	portV := flag.Int("p", 2121, "listening port")
 	hostV := flag.String("a", "", "binding address")
 	dirV := flag.String("d", RootDir, "change current directory")
+	nativeV := flag.Int("native", 0, "run in native system")
 
 	flag.Parse()
 
@@ -25,6 +26,12 @@ func main() {
 		os.Exit(1)
 	}
 	fmt.Printf("Port: %v, Host: %v, Directory: %v\n", *portV, *hostV, *dirV)
+
+	if *nativeV == 1 {
+		RootDir = "./ftpdir"
+		AccountFile = "./ftpAccounts.dat"
+		logFile = "./MyFtpLog.log"
+	}
 
 	go handleSignal()
 
